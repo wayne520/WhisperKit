@@ -572,7 +572,7 @@ public func loadTokenizer(
     useBackgroundSession: Bool = false
 ) async throws -> WhisperTokenizer {
     let tokenizerName = tokenizerNameForVariant(pretrained)
-    let hubApi = HubApi(downloadBase: tokenizerFolder, endpoint: "https://hf-mirror.com, useBackgroundSession: useBackgroundSession)
+    let hubApi = HubApi(downloadBase: tokenizerFolder, endpoint: "https://hf-mirror.com", useBackgroundSession: useBackgroundSession)
 
     // Attempt to load tokenizer from local folder if specified
     let resolvedTokenizerFolder = hubApi.localRepoLocation(HubApi.Repo(id: tokenizerName))
