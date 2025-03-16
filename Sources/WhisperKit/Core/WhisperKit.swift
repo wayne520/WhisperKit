@@ -166,7 +166,7 @@ open class WhisperKit {
         downloadBase: URL? = nil,
         token: String? = nil
     ) async -> ModelSupportConfig {
-        let hubApi = HubApi(downloadBase: downloadBase, hfToken: token)
+        let hubApi = HubApi(downloadBase: downloadBase, hfToken: token, endpoint: "https://hf-mirror.com")
         var modelSupportConfig = Constants.fallbackModelSupportConfig
 
         do {
@@ -244,7 +244,7 @@ open class WhisperKit {
         token: String? = nil,
         progressCallback: ((Progress) -> Void)? = nil
     ) async throws -> URL {
-        let hubApi = HubApi(downloadBase: downloadBase, hfToken: token, useBackgroundSession: useBackgroundSession)
+        let hubApi = HubApi(downloadBase: downloadBase, hfToken: token, endpoint: "https://hf-mirror.com", useBackgroundSession: useBackgroundSession)
         let repo = Hub.Repo(id: repo, type: .models)
         let modelSearchPath = "*\(variant.description)/*"
         do {
